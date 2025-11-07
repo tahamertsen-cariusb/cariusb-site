@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Theme Support */
+:root[data-theme="dark"],
+:root:not([data-theme]) {
+  color-scheme: dark;
+  --color-page: #0B0E11;
+  --color-surface-1: #15181D;
+  --color-surface-2: #1B2027;
+  --color-stroke: #262D36;
+  --color-text-1: #E6E8EB;
+  --color-text-2: #9FA8B3;
+  --color-accent: #4BB7FF;
+  --color-success: #44D07B;
+  --color-error: #D24A50;
+  --shadow-elev-1: 0 8px 32px rgba(0,0,0,0.22);
+  --shadow-inner: inset 0 1px 0 rgba(255,255,255,0.05);
+  --shadow-glow-accent: 0 0 12px rgba(75,183,255,0.15);
+  --grain-opacity: 0.04;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-page: #F5F7FA;
+  --color-surface-1: #EBEFF3;
+  --color-surface-2: #E2E7EC;
+  --color-stroke: #D5DCE3;
+  --color-text-1: #1E2329;
+  --color-text-2: #626A74;
+  --color-accent: #0A72D1;
+  --color-success: #2CA763;
+  --color-error: #CC3A42;
+  --shadow-elev-1: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-inner: inset 0 1px 0 rgba(0,0,0,0.05);
+  --shadow-glow-accent: 0 0 12px rgba(10,114,209,0.15);
+  --grain-opacity: 0.02;
+}
+
+html, body, #__next {
+  height: 100%;
+  overflow: hidden; /* Prevent body scroll, only inner containers scroll */
+}
+
+body { 
+  @apply bg-[var(--color-page)] text-[var(--color-text-1)] antialiased;
+  font-family: var(--font-inter, 'Inter', system-ui, sans-serif);
+}
+
+/* iOS 100dvh support */
+@supports (height: 100dvh) {
+  .h-dvh {
+    height: 100dvh;
+  }
+}
+
+/* Safe area insets for iOS */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Glass effect utility */
+.glass {
+  background: var(--color-surface-2);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-stroke);
+  box-shadow: var(--shadow-inner);
+}
+
+.glass-dark {
+  background: rgba(27, 32, 39, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-stroke);
+}
+
+.glass-light {
+  background: rgba(226, 231, 236, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-stroke);
+}
+
+/* Text utilities */
+.text-balance { 
+  text-wrap: balance; 
+}
+
+/* Focus ring - accessible */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-page)];
+}
+
+/* Hairline divider */
+.divider {
+  height: 1px;
+  background: var(--color-stroke);
+}
+
+/* Subtle grain texture */
+.grain {
+  position: relative;
+}
+
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .anim-soft,
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 230ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-hover {
+  transition: all 120ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover glow effect */
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow-accent);
+  border-color: var(--color-accent);
+}
