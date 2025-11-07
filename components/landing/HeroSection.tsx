@@ -38,12 +38,12 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-lg sm:text-xl text-text2 max-w-2xl mx-auto mb-10">
-          Tell me what you need. I'll derive the optimum.
+          Tell me what you need. I&apos;ll derive the optimum.
         </p>
 
         {/* CTA Button */}
         <Link
-          href={buildChatUrl()}
+          href={buildChatUrl() as any}
           role="button"
           className="inline-flex items-center justify-center rounded-2xl bg-accent px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-accent/90 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 shadow-lg"
           aria-label="Start chatting"

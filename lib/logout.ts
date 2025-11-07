@@ -58,7 +58,7 @@ export function useLogout() {
         }
 
         // Redirect (client-side to avoid flash)
-        router.replace(redirectTo);
+        router.replace(redirectTo as any);
       } catch (error: any) {
         console.error('Logout error:', error);
         onError?.(error.message || 'Logout failed');

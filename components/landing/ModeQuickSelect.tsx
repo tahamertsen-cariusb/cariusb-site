@@ -38,7 +38,7 @@ export function ModeQuickSelect() {
         {modes.map((mode) => (
           <Link
             key={mode}
-            href={buildChatUrl(mode)}
+            href={buildChatUrl(mode) as any}
             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
           >
             <GlassCard className="px-6 py-4 hover:scale-105 transition-transform cursor-pointer">

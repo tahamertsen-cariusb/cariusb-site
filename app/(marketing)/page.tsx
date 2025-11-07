@@ -43,7 +43,7 @@ export default function LandingPage() {
               className="mt-4 text-balance text-body-m text-text2 tracking-[-0.16px] max-w-[368.9px]"
               style={{ color: 'var(--color-text-2)' }}
             >
-              Tell me what you need. I'll derive the optimum.
+              Tell me what you need. I&apos;ll derive the optimum.
             </p>
 
             {/* Domain Mode Toggle (Figma: 8px spacing system) */}

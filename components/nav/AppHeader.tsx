@@ -108,7 +108,7 @@ export function AppHeader() {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href as any}
                   className={`text-sm text-text2 hover:text-text1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded-lg px-2 py-1 ${
                     isActive(link.href)
                       ? "text-text1 font-medium underline underline-offset-4 decoration-2"
@@ -187,7 +187,7 @@ export function AppHeader() {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href as any}
                   className={`block text-sm py-2 px-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
                     isActive(link.href)
                       ? "text-text1 font-medium bg-surface-2"
@@ -209,7 +209,7 @@ export function AppHeader() {
                     Dashboard
                   </Link>
                   <Link
-                    href="/dashboard#settings"
+                    href={("/dashboard#settings" as any)}
                     className="block text-sm py-2 px-2 rounded-lg text-text2 hover:text-text1 hover:bg-surface-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                   >
                     Settings

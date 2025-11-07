@@ -8,9 +8,11 @@ import type { Role } from "@/lib/chatTypes";
 export function MessageBubble({
   role,
   content,
+  createdAt,
 }: {
   role: Role;
   content: string;
+  createdAt?: number;
 }) {
   const isUser = role === "user";
   const isAI = role === "assistant";

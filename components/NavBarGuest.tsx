@@ -59,7 +59,7 @@ export function NavBarGuest() {
               
               {/* Request Key - Placeholder for future */}
               <Link
-                href="/request-key"
+                href={("/request-key" as any)}
                 className="text-body-s text-text2 hover:text-text1 transition-hover focus-ring"
                 aria-label="Request Key"
               >
